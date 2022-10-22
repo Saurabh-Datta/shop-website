@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const fetchQuote = async () => {
-  const response = await fetch("https://zenquotes.io/api/random");
+  const response = await fetch("https://quotesapi.pythonanywhere.com/getquote");
   var data = await response.json();
   console.log(data);
-  return data['0'];
+  return data;
 }
 
 export default function Home() {
@@ -57,10 +57,10 @@ export default function Home() {
       <div className="bg-blue-700 h-screen w-screen hidden md:flex">
         <div className="flex flex-col justify-center w-full items-center text-center">
           <div className="flex justify-center items-center text-center text-white text-3xl font-monospace italic">
-            {quote_data['q']}
+            {quote_data['quote']}
           </div>
           <div className="flex justify-center items-center text-center text-white text-xl mt-2">
-            - {quote_data['a']}
+            - {quote_data['author']}
           </div>
         </div>
       </div>
